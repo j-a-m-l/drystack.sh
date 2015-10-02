@@ -1,5 +1,6 @@
 DRYStack
 ========
+This scripts are intended for installing OpenStack in a single machine.
 
 Notes
 =====
