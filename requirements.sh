@@ -6,10 +6,6 @@ sudo apt-get install -y software-properties-common ubuntu-cloud-keyring
 sudo add-apt-repository cloud-archive:kilo
 sudo apt-get update
 
-echo -e "»\n» crudini (easiest way of manipulating the configuration files)\n»"
-
-sudo apt-get -y install crudini
-
 echo -e "»\n» Installing and configuring MariaDB\n»"
 
 sudo apt-get -y install mariadb-server python-mysqldb
@@ -28,11 +24,17 @@ sudo service mysql restart
 echo -e "»\n» Installing and configuring RabbitMQ\n»"
 
 sudo apt-get install -y rabbitmq-server
-sudo rabbitmqctl change_password guest $RABBIT_PASS
+sudo rabbitmqctl delete_user guest
+sudo rabbitmqctl add_user $RABBIT_USER $RABBIT_PASS
+sudo rabbitmqctl set_permissions $RABBIT_USER ".*" ".*" ".*"
+
+echo -e "»\n» Installing NTP (Network Time Protocol)\n»"
+
+sudo apt-get install -y ntp
 
 echo -e "»\n» Installing some network tools\n»"
 
-sudo apt-get install -y ntp vlan bridge-utils
+sudo apt-get install -y vlan bridge-utils
 
 echo -e "»\n Configuring system setting variables\n»"
 
@@ -41,3 +43,7 @@ net.ipv4.conf.all.rp_filter=0
 net.ipv4.conf.default.rp_filter=0" | sudo tee -a /etc/sysctl.conf
 
 sudo sysctl -p
+
+echo -e "»\n» crudini (easiest way of manipulating the configuration files)\n»"
+
+sudo apt-get -y install crudini

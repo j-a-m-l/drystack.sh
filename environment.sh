@@ -4,10 +4,14 @@ export LC_ALL=C
 
 export OS_IP='127.0.0.1'
 
+# Admin configuration and credentials
 export OS_ADMIN_PROJECT='admin'
 export OS_ADMIN_EMAIL='admin@example.net'
 export OS_ADMIN_USER='admin'
 export OS_ADMIN_PASS='admin'
+
+# URL of the OpenStack authorization
+export OS_AUTH_URL="http://$OS_IP:35357/v2.0"
 
 # This project contains a unique user for each service
 export OS_SERVICE_PROJECT='service'

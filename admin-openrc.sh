@@ -1,0 +1,8 @@
+source $PWD/environment.sh
+
+# export OS_PROJECT_DOMAIN_ID=default
+# export OS_USER_DOMAIN_ID=default
+export OS_PROJECT_NAME=$OS_ADMIN_PROJECT
+export OS_TENANT_NAME=$OS_ADMIN_PROJECT
+export OS_USERNAME=$OS_ADMIN_USER
+export OS_PASSWORD=$OS_ADMIN_PASS
