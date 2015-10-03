@@ -3,8 +3,8 @@ source $PWD/configuration.sh
 echo -e "»\n»Configuring the Neutron metadata agent\n»"
 
 sudo crudini --set /etc/neutron/metadata_agent.ini DEFAULT verbose True
-sudo crudini --set /etc/neutron/metadata_agent.ini DEFAULT nova_metadata_ip = $DRY_IP
-sudo crudini --set /etc/neutron/metadata_agent.ini DEFAULT metadata_proxy_shared_secret = $NEUTRON_METADATA_SECRET
+sudo crudini --set /etc/neutron/metadata_agent.ini DEFAULT nova_metadata_ip $DRY_IP
+sudo crudini --set /etc/neutron/metadata_agent.ini DEFAULT metadata_proxy_shared_secret $NEUTRON_METADATA_SECRET
 
 echo -e "»\n»Configuring the Neutron metadata authorization\n»"
 
@@ -21,4 +21,4 @@ sudo crudini --set /etc/neutron/metadata_agent.ini DEFAULT password $NEUTRON_PAS
 echo -e "»\n»Configuring the Neutron metadata proxy for Nova\n»"
 
 sudo crudini --set /etc/nova/nova.conf neutron service_metadata_proxy True
-sudo crudini --set /etc/nova/nova.conf neutron metadata_proxy_shared_secret = $NEUTRON_METADATA_SECRET
+sudo crudini --set /etc/nova/nova.conf neutron metadata_proxy_shared_secret $NEUTRON_METADATA_SECRET

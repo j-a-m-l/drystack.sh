@@ -3,7 +3,7 @@ source $PWD/configuration.sh
 echo -e "»\n» Deleting the Neutron user, service and endpoint\n»"
 
 openstack user delete neutron
-openstack service delete neutron
+openstack service delete network
 # TODO works, but triggers error
 openstack endpoint delete `openstack endpoint list | grep neutron | awk '{ print $2 }' | head -n1`
 

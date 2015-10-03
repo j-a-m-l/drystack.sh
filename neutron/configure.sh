@@ -31,8 +31,8 @@ sudo crudini --set /etc/neutron/neutron.conf keystone_authtoken password $NEUTRO
 
 echo -e "»\n»Configuring the Neutron and Nova communication\n»"
 
-sudo crudini --set /etc/neutron/neutron.conf DEFAULT notify_nova_on_port_status_changes = True
-sudo crudini --set /etc/neutron/neutron.conf DEFAULT notify_nova_on_port_data_changes = True
+sudo crudini --set /etc/neutron/neutron.conf DEFAULT notify_nova_on_port_status_changes True
+sudo crudini --set /etc/neutron/neutron.conf DEFAULT notify_nova_on_port_data_changes True
 sudo crudini --set /etc/neutron/neutron.conf DEFAULT nova_url $NOVA_URL
 
 sudo crudini --set /etc/neutron/neutron.conf nova auth_url $KEYSTONE_ADMIN_URL
