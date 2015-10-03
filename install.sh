@@ -10,9 +10,12 @@
 ./glance/verify.sh
 
 ./nova/install.sh
+./nova/verify.sh
 
 ./cinder/install.sh
+./cinder/verify.sh
 
 ./neutron/install.sh
+./neutron/verify.sh
 
 ./horizon/install.sh
