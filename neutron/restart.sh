@@ -11,8 +11,8 @@ sudo neutron-db-manage --config-file /etc/neutron/neutron.conf --config-file /et
 sudo service openvswitch-switch restart
 
 sudo service nova-api restart
+sudo service nova-compute restart
 sudo service neutron-server restart
-
 sudo service neutron-plugin-openvswitch-agent restart
 sudo service neutron-l3-agent restart
 sudo service neutron-dhcp-agent restart
