@@ -13,5 +13,5 @@ keystone endpoint-create \
 	--service=keystone \
 	--internalurl=$KEYSTONE_INTERNAL_URL \
 	--publicurl=$KEYSTONE_PUBLIC_URL \
-	--adminurl=$OS_AUTH_URL \
-	--region=$OS_REGION
+	--adminurl=$KEYSTONE_ADMIN_URL \
+	--region=$DRY_REGION

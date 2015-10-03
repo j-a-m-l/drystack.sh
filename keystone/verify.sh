@@ -6,13 +6,34 @@ sudo crudini --del /etc/keystone/keystone-paste.ini pipeline:public_api admin_to
 sudo crudini --del /etc/keystone/keystone-paste.ini pipeline:admin_api admin_token_auth
 sudo crudini --del /etc/keystone/keystone-paste.ini pipeline:api_v3 admin_token_auth
 
-unset OS_SERVICE_TOKEN OS_SERVICE_ENDPOINT
+unset DRY_SERVICE_TOKEN DRY_SERVICE_ENDPOINT
 
 openstack --os-auth-url $OS_AUTH_URL \
 	--os-auth-type password \
-  --os-project-name $OS_ADMIN_PROJECT \
-  --os-username $OS_ADMIN_USER \
-	--os-password $OS_ADMIN_PASS \
-  token issue
+	--os-project-name $DRY_ADMIN_PROJECT \
+	--os-username $DRY_ADMIN_USER \
+	--os-password $DRY_ADMIN_PASS \
+	token issue
+
+openstack --os-auth-url $OS_AUTH_URL \
+	--os-auth-type password \
+	--os-project-name $DRY_ADMIN_PROJECT \
+	--os-username $DRY_ADMIN_USER \
+	--os-password $DRY_ADMIN_PASS \
+	project list
+
+openstack --os-auth-url $OS_AUTH_URL \
+	--os-auth-type password \
+	--os-project-name $DRY_ADMIN_PROJECT \
+	--os-username $DRY_ADMIN_USER \
+	--os-password $DRY_ADMIN_PASS \
+	user list
+
+openstack --os-auth-url $OS_AUTH_URL \
+	--os-auth-type password \
+  --os-project-name $DRY_ADMIN_PROJECT \
+  --os-username $DRY_ADMIN_USER \
+	--os-password $DRY_ADMIN_PASS \
+  role list
 
 # TODO test more things

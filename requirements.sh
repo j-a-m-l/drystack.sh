@@ -21,6 +21,8 @@ character-set-server = utf8" | sudo tee /etc/mysql/conf.d/openstack.cnf
 
 sudo service mysql restart
 
+sudo mysql_secure_installation
+
 echo -e "»\n» Installing and configuring RabbitMQ\n»"
 
 sudo apt-get install -y rabbitmq-server

@@ -4,10 +4,12 @@
 ./keystone/apache.sh
 ./keystone/identity.sh
 ./keystone/projects.sh
-
-./nova/install.sh
+./keystone/verify.sh
 
 ./glance/install.sh
+./glance/verify.sh
+
+./nova/install.sh
 
 ./cinder/install.sh
 
