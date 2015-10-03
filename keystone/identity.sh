@@ -5,7 +5,7 @@ echo -e "»\n»Creating the Identity service\n»"
 keystone service-create \
 	--name=keystone \
 	--type=identity \
-	--description="Keystone Identity Service"
+	--description="OpenStack Identity Service"
 
 echo -e "»\n»Creating the Identity endpoint\n»"
 
