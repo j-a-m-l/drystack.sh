@@ -19,15 +19,19 @@
 # ./nova/restart.sh
 # ./nova/verify.sh
 # 
-# ./neutron/install.sh
+$PWD/neutron/install.sh
+$PWD/neutron/interfaces.sh
 $PWD/neutron/configure.sh
 $PWD/neutron/ml2.sh
 $PWD/neutron/nova.sh
 $PWD/neutron/l3.sh
 $PWD/neutron/dhcp.sh
 $PWD/neutron/metadata.sh
-# ./neutron/restart.sh
-# ./neutron/verify.sh
+$PWD/neutron/ovs.sh
+$PWD/neutron/restart.sh
+$PWD/neutron/networks.sh
+$PWD/neutron/security_group.sh
+$PWD/neutron/verify.sh
 # 
 # ./cinder/install.sh
 # ./cinder/configure.sh

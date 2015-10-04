@@ -8,6 +8,6 @@ sudo crudini --set /etc/neutron/dhcp_agent.ini DEFAULT dhcp_driver neutron.agent
 
 # TODO
 # sudo crudini --set /etc/neutron/dhcp_agent.ini DEFAULT dhcp_delete_namespaces True
-# sudo crudini --set /etc/neutron/dhcp_agent.ini DEFAULT use_namespaces True
+sudo crudini --set /etc/neutron/dhcp_agent.ini DEFAULT use_namespaces True
 
 # TODO MTU?

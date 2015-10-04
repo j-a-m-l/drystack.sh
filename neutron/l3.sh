@@ -7,4 +7,4 @@ sudo crudini --set /etc/neutron/l3_agent.ini DEFAULT interface_driver neutron.ag
 
 # TODO
 # sudo crudini --set /etc/neutron/l3_agent.ini DEFAULT router_delete_namespaces True
-# sudo crudini --set /etc/neutron/l3_agent.ini DEFAULT use_namespaces True
+sudo crudini --set /etc/neutron/l3_agent.ini DEFAULT use_namespaces True
