@@ -33,8 +33,8 @@
 # $PWD/neutron/security_group.sh
 # $PWD/neutron/verify.sh
 # 
-$PWD/cinder/install.sh
-$PWD/cinder/configure.sh
+# $PWD/cinder/install.sh
+# $PWD/cinder/configure.sh
 # $PWD/cinder/volumes.sh
 # $PWD/cinder/restart.sh
 # $PWD/cinder/verify.sh
