@@ -19,23 +19,24 @@
 # ./nova/restart.sh
 # ./nova/verify.sh
 # 
-$PWD/neutron/install.sh
-$PWD/neutron/interfaces.sh
-$PWD/neutron/configure.sh
-$PWD/neutron/ml2.sh
-$PWD/neutron/nova.sh
-$PWD/neutron/l3.sh
-$PWD/neutron/dhcp.sh
-$PWD/neutron/metadata.sh
-$PWD/neutron/ovs.sh
-$PWD/neutron/restart.sh
-$PWD/neutron/networks.sh
-$PWD/neutron/security_group.sh
-$PWD/neutron/verify.sh
+# $PWD/neutron/install.sh
+# $PWD/neutron/interfaces.sh
+# $PWD/neutron/configure.sh
+# $PWD/neutron/ml2.sh
+# $PWD/neutron/nova.sh
+# $PWD/neutron/l3.sh
+# $PWD/neutron/dhcp.sh
+# $PWD/neutron/metadata.sh
+# $PWD/neutron/ovs.sh
+# $PWD/neutron/restart.sh
+# $PWD/neutron/networks.sh
+# $PWD/neutron/security_group.sh
+# $PWD/neutron/verify.sh
 # 
-# ./cinder/install.sh
-# ./cinder/configure.sh
-# ./cinder/restart.sh
-# ./cinder/verify.sh
+$PWD/cinder/install.sh
+$PWD/cinder/configure.sh
+# $PWD/cinder/volumes.sh
+# $PWD/cinder/restart.sh
+# $PWD/cinder/verify.sh
 # 
 # ./horizon/install.sh

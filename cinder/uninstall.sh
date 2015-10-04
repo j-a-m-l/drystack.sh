@@ -1,0 +1,18 @@
+source $PWD/configuration.sh
+
+echo -e "»\n» Deleting the Cinder user, service and endpoint\n»"
+
+openstack user delete cinder
+openstack service delete cinder
+# TODO works, but triggers error
+openstack endpoint delete `openstack endpoint list | grep cinder | awk '{ print $2 }' | head -n1`
+
+echo -e "»\n» Deleting the Cinder database\n»"
+
+mysql -uroot -p$ROOT_DB_PASS -e "DROP DATABASE IF EXISTS cinder;"
+
+# TODO 
+echo -e "»\n» Removing the Cinder configuration\n»"
+
+# TODO optional
+echo -e "»\n» Uninstalling the Cinder packages\n»"

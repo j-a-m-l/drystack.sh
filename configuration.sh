@@ -86,3 +86,10 @@ NEUTRON_PRIVATE_SUBNET_GATEWAY='10.0.0.1'
 
 # Router that connects public and private networks
 NEUTRON_ROUTER='unique-router'
+
+# Cinder
+CINDER_PASS='cindeR-cider'
+CINDER_DB_PASS=$CINDER_PASS
+CINDER_URL="http://$DRY_IP:8776/v2"
+CINDER_ENDPOINT="$CINDER_URL/%(tenant_id)s"
+CINDER_SERVER_NAME=$DRY_HOST
