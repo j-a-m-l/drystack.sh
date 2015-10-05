@@ -8,17 +8,17 @@ neutron net-create --router:external \
 	$NEUTRON_PUBLIC_NET
 
 neutron subnet-create --name $NEUTRON_PUBLIC_SUBNET_NAME \
+	--allocation_pool "start=$NEUTRON_FLOATING_IP_START,end=$NEUTRON_FLOATING_IP_END" \
 	--disable-dhcp \
-	--allocation_pool start=$NEUTRON_FLOATING_IP_START,end=$NEUTRON_FLOATING_IP_END \
-	--gateway $DRY_HOST_GATEWAY \
+	--gateway $DRY_EX_GATEWAY \
 	$NEUTRON_PUBLIC_NET $NEUTRON_PUBLIC_SUBNET_CIDR
 
 echo -e "»\n» Create the Private (internal) network\n»"
 
-# FIXME
 neutron net-create $NEUTRON_PRIVATE_NET
 
 neutron subnet-create --name $NEUTRON_PRIVATE_SUBNET_NAME \
+	--enable-dhcp \
 	--gateway $NEUTRON_PRIVATE_SUBNET_GATEWAY \
 	$NEUTRON_PRIVATE_NET $NEUTRON_PRIVATE_SUBNET_CIDR
 

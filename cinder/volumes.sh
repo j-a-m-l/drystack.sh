@@ -29,7 +29,7 @@ sudo crudini --set /etc/cinder/cinder.conf DEFAULT volume_group cinder-volumes
 
 echo -e "»\n» Manual step!\n»"
 echo -e "»\n» It is necessary to configure the Cinder volumes\n»"
-echo -e '
+# echo -e '
 sudo crudini --set /etc/cinder/cinder.conf DEFAULT enabled_backends volumes-ssd,volumes-hdd
 sudo crudini --set /etc/cinder/cinder.conf DEFAULT default_volume_type performance
 
@@ -44,4 +44,4 @@ sudo crudini --set /etc/cinder/cinder.conf volumes-hdd volume_group cinder-volum
 sudo crudini --set /etc/cinder/cinder.conf volumes-hdd volume_backend_name volumes-hdd
 sudo crudini --set /etc/cinder/cinder.conf volumes-hdd iscsi_protocol iscsi
 sudo crudini --set /etc/cinder/cinder.conf volumes-hdd iscsi_helper tgtadm
-'
+# '

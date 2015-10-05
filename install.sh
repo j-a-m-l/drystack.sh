@@ -1,24 +1,28 @@
 # Ignore this; currently is not intended to be something completely automatic
-# ./requirements.sh
+# $PWD/requirements.sh
 # 
-# ./keystone/install.sh
-# ./keystone/configure.sh
-# ./keystone/apache.sh
-# ./keystone/identity.sh
-# ./keystone/projects.sh
-# ./keystone/restart.sh
-# ./keystone/verify.sh
+$PWD/keystone/uninstall.sh
+$PWD/keystone/install.sh
+$PWD/keystone/configure.sh
+$PWD/keystone/apache.sh
+$PWD/keystone/restart.sh
+$PWD/keystone/identity.sh
+$PWD/keystone/projects.sh
+$PWD/keystone/verify.sh
+
+# $PWD/glance/uninstall.sh
+# $PWD/glance/install.sh
+# $PWD/glance/configure.sh
+# $PWD/glance/restart.sh
+# $PWD/glance/verify.sh
 # 
-# ./glance/install.sh
-# ./glance/restart.sh
-# ./glance/restart.sh
-# ./glance/verify.sh
+# $PWD/nova/uninstall.sh
+# $PWD/nova/install.sh
+# $PWD/nova/configure.sh
+# $PWD/nova/restart.sh
+# $PWD/nova/verify.sh
 # 
-# ./nova/install.sh
-# ./configure/restart.sh
-# ./nova/restart.sh
-# ./nova/verify.sh
-# 
+# $PWD/neutron/uninstall.sh
 # $PWD/neutron/install.sh
 # $PWD/neutron/interfaces.sh
 # $PWD/neutron/configure.sh
@@ -33,10 +37,12 @@
 # $PWD/neutron/security_group.sh
 # $PWD/neutron/verify.sh
 # 
+# $PWD/cinder/uninstall.sh
 # $PWD/cinder/install.sh
 # $PWD/cinder/configure.sh
 # $PWD/cinder/volumes.sh
 # $PWD/cinder/restart.sh
 # $PWD/cinder/verify.sh
 # 
-# ./horizon/install.sh
+# $PWD/horizon/install.sh
+# $PWD/horizon/configure

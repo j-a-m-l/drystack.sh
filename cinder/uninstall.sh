@@ -7,6 +7,14 @@ openstack service delete cinder
 # TODO works, but triggers error
 openstack endpoint delete `openstack endpoint list | grep cinder | awk '{ print $2 }' | head -n1`
 
+echo -e "»\n» Stopping Cinder services\n»"
+
+# sudo service tgt restart
+
+sudo service cinder-api stop
+sudo service cinder-scheduler stop
+sudo service cinder-volume stop
+
 echo -e "»\n» Deleting the Cinder database\n»"
 
 mysql -uroot -p$ROOT_DB_PASS -e "DROP DATABASE IF EXISTS cinder;"

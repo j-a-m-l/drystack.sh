@@ -1,12 +1,23 @@
 source $PWD/configuration.sh
 
+# Stop Apache for setting the temporal authentication
+sudo service apache2 stop
+
+# NOTE OS_URL requires /v2.0
+export OS_URL="http://$DRY_IP:35357/v2.0"
+export OS_TOKEN=$DRY_TEMPORAL_TOKEN
+
+sudo service apache2 start
+
 echo -e "»\n»Creating the admin project\n»"
 
-keystone tenant-create --name=$DRY_ADMIN_PROJECT --description="Admin Project"
-keystone user-create --name=$DRY_ADMIN_USER --pass=$DRY_ADMIN_PASS --email=$DRY_ADMIN_EMAIL
-keystone role-create --name=admin
-keystone user-role-add --user=$DRY_ADMIN_USER --tenant=$DRY_ADMIN_PROJECT --role=admin
+openstack project create --description "Admin Project" $DRY_ADMIN_PROJECT 
+openstack user create --password $DRY_ADMIN_PASS --email $DRY_ADMIN_EMAIL $DRY_ADMIN_USER 
+openstack role create admin
+openstack role add --user $DRY_ADMIN_USER --project $DRY_ADMIN_PROJECT admin
 
 echo -e "»\n»Creating the service project\n»"
 
-keystone tenant-create --name=$DRY_SERVICE_PROJECT --description="Service Project"
+openstack project create --description "Service Project" service
+
+unset OS_TOKEN OS_URL

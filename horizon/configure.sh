@@ -17,7 +17,7 @@ CACHES = {
 
 Comment out any other session storage configuration.
 	
-OPENSTACK_KEYSTONE_DEFAULT_ROLE = 'user'
+OPENSTACK_KEYSTONE_DEFAULT_ROLE = 'admin'
 	
 TIME_ZONE = 'UTC'
 "

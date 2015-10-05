@@ -1,3 +1,5 @@
+source $PWD/configuration.sh
+
 echo -e "»\n» Create the 'open' security group\n»"
 
 neutron security-group-create open --description "Open all things!"

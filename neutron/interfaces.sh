@@ -1,6 +1,6 @@
 source $PWD/configuration.sh
 
-echo -e "»\n» Configure '/etc/network/interfaces'\n»"
+echo -e "»\n» Configuring '/etc/network/interfaces'\n»"
 
 echo "
 # This file describes the network interfaces available on your system
@@ -14,33 +14,44 @@ echo "
 auto lo
 iface lo inet loopback
 
-# The primary network interface
-auto $DRY_HOST_INTERFACE
-iface $DRY_HOST_INTERFACE inet static
-address $DRY_HOST_IP
-network $DRY_HOST_NETMASK
-gateway $DRY_HOST_GATEWAY
-broadcast $DRY_HOST_BROADCAST
-netmask $DRY_HOST_NETMASK
-dns-nameservers 8.8.8.8
-
-# The secondary network interface that connects interfaces
-auto $DRY_OVS_INTERFACE
-iface $DRY_OVS_INTERFACE inet manual
+# The primary network interface (external)
+auto $DRY_EX_INTERFACE
+iface $DRY_EX_INTERFACE inet manual
 ovs_bridge $NEUTRON_FLAT_BRIDGE
 ovs_type OVSPort
 address 0.0.0.0
 
 auto $NEUTRON_FLAT_BRIDGE
 iface $NEUTRON_FLAT_BRIDGE inet static
-address $DRY_OVS_IP
-network $DRY_OVS_NETWORK
-gateway $DRY_OVS_GATEWAY
-broadcast $DRY_OVS_BROADCAST
-netmask $DRY_OVS_NETMASK
+address $DRY_EX_IP
+network $DRY_EX_NETWORK
+gateway $DRY_EX_GATEWAY
+broadcast $DRY_EX_BROADCAST
+netmask $DRY_EX_NETMASK
 dns-nameservers 8.8.8.8
 ovs_type OVSPort
 ovs_ports $NEUTRON_FLAT_BRIDGE
+bridge_stp off
+bridge_fd 0
+bridge_maxwait 0
+
+# The secondary network (internal)
+auto $DRY_VINT_INTERFACE
+iface $DRY_VINT_INTERFACE inet manual
+ovs_bridge $NEUTRON_VLAN_BRIDGE
+ovs_type OVSPort
+address 0.0.0.0
+
+auto $NEUTRON_VLAN_BRIDGE
+iface $NEUTRON_VLAN_BRIDGE inet static
+address $DRY_VINT_IP
+network $DRY_VINT_NETWORK
+gateway $DRY_VINT_GATEWAY
+broadcast $DRY_VINT_BROADCAST
+netmask $DRY_VINT_NETMASK
+dns-nameservers 8.8.8.8
+ovs_type OVSPort
+ovs_ports $NEUTRON_VLAN_BRIDGE
 bridge_stp off
 bridge_fd 0
 bridge_maxwait 0
@@ -48,5 +59,5 @@ bridge_maxwait 0
 
 echo -e "»\n» Reloading the interfaces\n»"
 
-sudo ifdown em1 em2 br-ex
-sudo ifup em1 em2 br-ex
+sudo ifdown $DRY_EX_INTERFACE $DRY_VINT_INTERFACE $NEUTRON_FLAT_BRIDGE $NEUTRON_VLAN_BRIDGE
+sudo ifup $DRY_EX_INTERFACE $DRY_VINT_INTERFACE $NEUTRON_FLAT_BRIDGE $NEUTRON_VLAN_BRIDGE

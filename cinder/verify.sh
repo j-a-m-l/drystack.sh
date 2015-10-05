@@ -18,10 +18,10 @@ cinder delete test_volume
 
 echo -e "»\n» Manual step!\n»"
 echo -e "»\n» Creating Cinder volume types\n»"
-echo -e '
+# echo -e '
 cinder type-create regular
 cinder type-key regular set volume_backend_name=volumes-hdd
 
 cinder type-create performance
 cinder type-key regular set volume_backend_name=volumes-ssd
-'
+# '

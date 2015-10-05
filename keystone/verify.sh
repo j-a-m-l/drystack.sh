@@ -1,12 +1,12 @@
 source $PWD/configuration.sh
 
-echo -e "»\n»Disabling the temporary authentication token mechanism\n»"
+echo -e "»\n» Disabling the temporary authentication token mechanism\n»"
 
 sudo crudini --del /etc/keystone/keystone-paste.ini pipeline:public_api admin_token_auth
 sudo crudini --del /etc/keystone/keystone-paste.ini pipeline:admin_api admin_token_auth
 sudo crudini --del /etc/keystone/keystone-paste.ini pipeline:api_v3 admin_token_auth
 
-unset DRY_SERVICE_TOKEN DRY_SERVICE_ENDPOINT
+echo -e "»\n» Checking ...\n»"
 
 openstack --os-auth-url $OS_AUTH_URL \
 	--os-auth-type password \
