@@ -1,5 +1,9 @@
 source $PWD/configuration.sh
 
+echo -e "»\n» Restarting the Open vSwitch service\n»"
+
+sudo service openvswitch-switch restart
+
 echo -e "»\n» Create the OVS bridges and ports\n»"
 
 # Sometimes this bridge is already created

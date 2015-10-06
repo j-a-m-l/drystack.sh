@@ -1,5 +1,10 @@
 source $PWD/configuration.sh
 
+echo -e "»\n» Making a back-up of the network interfaces configurations\n»"
+
+sudo mkdir -p $PWD/neutron/backup
+sudo cp /etc/network/interfaces $PWD/neutron/backup/
+
 echo -e "»\n» Configuring '/etc/network/interfaces'\n»"
 
 echo "

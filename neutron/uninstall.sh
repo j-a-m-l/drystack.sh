@@ -1,11 +1,5 @@
 source $PWD/configuration.sh
 
-echo -e "»\n» Enabling the temporary authentication token mechanism\n»"
-
-sudo crudini --set /etc/keystone/keystone-paste.ini pipeline:public_api admin_token_auth $DRY_TEMPORAL_TOKEN
-sudo crudini --set /etc/keystone/keystone-paste.ini pipeline:admin_api admin_token_auth $DRY_TEMPORAL_TOKEN
-sudo crudini --set /etc/keystone/keystone-paste.ini pipeline:api_v3 admin_token_auth $DRY_TEMPORAL_TOKEN
-
 echo -e "»\n» Removing the 'open' security group\n»"
 
 neutron security-group-delete open

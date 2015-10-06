@@ -1,34 +1,32 @@
-source $PWD/configuration.sh
+$PWD/neutron/install/db.sh
 
-echo -e "»\n»Creating the Neutron database\n»"
+$PWD/neutron/install/user.sh
+$PWD/neutron/install/service.sh
+$PWD/neutron/install/endpoint.sh
+$PWD/neutron/install/packages.sh
 
-mysql -uroot -p$ROOT_DB_PASS -e "CREATE DATABASE neutron;"
+$PWD/neutron/install/configure.sh
+$PWD/neutron/install/ml2.sh
+$PWD/neutron/install/nova.sh
+$PWD/neutron/install/l3.sh
+$PWD/neutron/install/dhcp.sh
+$PWD/neutron/install/metadata.sh
 
-mysql -uroot -p$ROOT_DB_PASS -e "GRANT ALL PRIVILEGES ON neutron.* TO 'neutron'@'localhost' IDENTIFIED BY '$NEUTRON_DB_PASS';"
+$PWD/neutron/install/sync.sh
+$PWD/neutron/install/restart.sh
 
-mysql -uroot -p$ROOT_DB_PASS -e "GRANT ALL PRIVILEGES ON neutron.* TO 'neutron'@'%' IDENTIFIED BY '$NEUTRON_DB_PASS';"
+$PWD/neutron/verify/installation.sh
 
-echo -e "»\n»Creating the Neutron user\n»"
+$PWD/neutron/install/external_network.sh
+$PWD/neutron/install/private_network.sh
+$PWD/neutron/verify/networks.sh
 
-openstack user create --password $NEUTRON_PASS neutron
-openstack role add --user neutron --project service admin
+$PWD/neutron/install/router
+$PWD/neutron/verify/router.sh
 
-echo -e "»\n»Creating the Network service\n»"
+$PWD/neutron/install/security_group.sh
+$PWD/neutron/verify/security_group.sh
 
-openstack service create \
-	--name neutron \
-	--description "OpenStack Network Service" \
-	network
-
-echo -e "»\n»Creating the Network endpoint\n»"
-
-openstack endpoint create \
-	--publicurl $NEUTRON_ENDPOINT \
-	--internalurl $NEUTRON_ENDPOINT \
-	--adminurl $NEUTRON_ENDPOINT \
-	--region $DRY_REGION \
-	network
-
-echo -e "»\n»Installing Neutron packages\n»"
-
-sudo apt-get install -y neutron-server python-neutronclient neutron-plugin-ml2 neutron-plugin-openvswitch-agent neutron-l3-agent neutron-dhcp-agent neutron-metadata-agent
+$PWD/neutron/install/ovs.sh
+$PWD/neutron/install/interfaces.sh
+$PWD/neutron/install/restart.sh

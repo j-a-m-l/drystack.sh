@@ -69,7 +69,6 @@ NOVA_NON_VNC_URL="http://$DRY_IP:6080/vnc_auto.html"
 NEUTRON_PASS='nooooo-neutr0n-nooooooooo'
 NEUTRON_DB_PASS=$NEUTRON_PASS
 NEUTRON_ENDPOINT="http://$DRY_IP:9696"
-NEUTRON_SERVER_NAME=$DRY_HOST
 NEUTRON_NON_VNC_URL="http://$DRY_IP:6080/vnc_auto.html"
 NEUTRON_METADATA_SECRET='Lost Art of Keeping a Secret'
 

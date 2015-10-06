@@ -1,5 +1,10 @@
 source $PWD/configuration.sh
 
+echo -e "»\n» Making a back-up of the Neutron ML2 configurations\n»"
+
+sudo mkdir -p $PWD/neutron/backup
+sudo cp /etc/neutron/plugins/ml2/ml2_conf.ini $PWD/neutron/backup/
+
 echo -e "»\n»Configuring the Neutron ML2 plug-in\n»"
 
 sudo crudini --set /etc/neutron/plugins/ml2/ml2_conf.ini ml2 type_drivers flat,vlan
@@ -18,6 +23,8 @@ sudo crudini --set /etc/neutron/plugins/ml2/ml2_conf.ini securitygroup firewall_
 
 echo -e "»\n»Configuring the Neutron ML2 plug-in OVS options\n»"
 
-sudo crudini --set /etc/neutron/plugins/ml2/ml2_conf.ini ovs bridge_mappings "$NEUTRON_FLAT_NET:$NEUTRON_FLAT_BRIDGE"
+# TODO error prone?
+
+sudo crudini --set /etc/neutron/plugins/ml2/ml2_conf.ini ovs local_ip $DRY_IP
 
 sudo crudini --set /etc/neutron/plugins/ml2/ml2_conf.ini ovs bridge_mappings "$NEUTRON_FLAT_NET:$NEUTRON_FLAT_BRIDGE,$NEUTRON_VLAN_NET:$NEUTRON_VLAN_BRIDGE"
