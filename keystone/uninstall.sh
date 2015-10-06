@@ -15,6 +15,11 @@ echo -e "»\n» Removing the Apache configuration\n»"
 # TODO
 echo -e "»\n» Deleting the Keystone user, service and endpoint\n»"
 
+openstack user delete $DRY_ADMIN_USER
+
+openstack project delete $DRY_ADMIN_PROJECT
+openstack project delete service
+
 openstack service delete keystone
 
 openstack endpoint delete keystone

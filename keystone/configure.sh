@@ -17,7 +17,7 @@ sudo crudini --set /etc/keystone/keystone.conf token driver keystone.token.persi
 
 sudo crudini --set /etc/keystone/keystone.conf revoke driver keystone.contrib.revoke.backends.sql.Revoke
 
-sudo crudini --set /etc/keystone/keystone.conf memcache servers localhost:11211
+sudo crudini --set /etc/keystone/keystone.conf memcache servers $DRY_IP:11211
 
 echo -e "»\n» Configuring other Keystone options\n»"
 

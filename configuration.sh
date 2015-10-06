@@ -1,6 +1,7 @@
 source $PWD/admin-openrc.sh
 
 DRY_TEMPORAL_TOKEN='ADMIN'
+DRY_TEMPORAL_URL="http://$DRY_IP:35357/v2.0"
 
 # Options for installing and configuring OpenStack
 

@@ -2,10 +2,10 @@ source $PWD/configuration.sh
 
 echo -e "»\n» Deleting the Glance user, service and endpoint\n»"
 
-keystone user-delete glance
-keystone service-delete glance
+openstack user delete glance
+openstack service delete glance
 # TODO works, but triggers error
-keystone endpoint-delete `keystone endpoint-list | grep 9292 | awk '{ print $2 }'`
+openstack endpoint delete `openstack endpoint list | grep 9292 | awk '{ print $2 }'`
 
 echo -e "»\n» Stopping Glance services\n»"
 
