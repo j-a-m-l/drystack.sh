@@ -3,12 +3,7 @@ $PWD/requirements.sh
 
 $PWD/keystone/install.sh
 $PWD/glance/install.sh
-
-# $PWD/nova/uninstall.sh
-# $PWD/nova/install.sh
-# $PWD/nova/configure.sh
-# $PWD/nova/restart.sh
-# $PWD/nova/verify.sh
+$PWD/nova/install.sh
 
 # $PWD/neutron/uninstall.sh
 # $PWD/neutron/install.sh

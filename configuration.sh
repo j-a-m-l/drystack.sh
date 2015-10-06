@@ -7,7 +7,6 @@ export LC_ALL=C
 
 # IP of the unique node (localhost is enough)
 DRY_IP='127.0.0.1'
-# TODO
 DRY_HOST='lab'
 
 # Admin configuration and credentials
@@ -64,7 +63,6 @@ NOVA_PASS='new-super-nova'
 NOVA_DB_PASS=$NOVA_PASS
 NOVA_URL="http://$DRY_IP:8774/v2"
 NOVA_ENDPOINT="$NOVA_URL/%(tenant_id)s"
-NOVA_SERVER_NAME=$DRY_HOST
 NOVA_NON_VNC_URL="http://$DRY_IP:6080/vnc_auto.html"
 
 # Neutron
