@@ -1,14 +1,8 @@
 # Ignore this; currently is not intended to be something completely automatic
-# $PWD/requirements.sh
+$PWD/requirements.sh
 
 $PWD/keystone/install.sh
-
-# $PWD/glance/uninstall.sh
-# $PWD/glance/install.sh
-# $PWD/glance/configure.sh
-# $PWD/glance/endpoint.sh
-# $PWD/glance/restart.sh
-# $PWD/glance/verify.sh
+$PWD/glance/install.sh
 
 # $PWD/nova/uninstall.sh
 # $PWD/nova/install.sh

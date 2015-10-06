@@ -1,13 +1,7 @@
-source $PWD/configuration.sh
-
-echo -e "»\n» Creating the Glance database\n»"
-
-mysql -uroot -p$ROOT_DB_PASS -e "CREATE DATABASE glance;"
-
-mysql -uroot -p$ROOT_DB_PASS -e "GRANT ALL PRIVILEGES ON glance.* TO 'glance'@'localhost' IDENTIFIED BY '$GLANCE_DB_PASS';"
-
-mysql -uroot -p$ROOT_DB_PASS -e "GRANT ALL PRIVILEGES ON glance.* TO 'glance'@'%' IDENTIFIED BY '$GLANCE_DB_PASS';"
-
-echo -e "»\n» Installing Glance packages\n»"
-
-sudo apt-get install -y glance
+$PWD/glance/install/db.sh
+$PWD/glance/install/user.sh
+$PWD/glance/install/service.sh
+$PWD/glance/install/endpoint.sh
+$PWD/glance/install/packages.sh
+$PWD/glance/install/configure.sh
+$PWD/glance/verify.sh

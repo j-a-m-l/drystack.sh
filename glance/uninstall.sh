@@ -1,5 +1,9 @@
 source $PWD/configuration.sh
 
+echo -e "»\n» Deleting the example image\n»"
+
+__os__ image delete "$GLANCE_EXAMPLE_IMAGE_NAME"
+
 echo -e "»\n» Deleting the Glance user, service and endpoint\n»"
 
 openstack user delete glance

@@ -1,5 +1,3 @@
-source $PWD/configuration.sh
-
 $PWD/keystone/install/db.sh
 $PWD/keystone/install/packages.sh
 $PWD/keystone/install/configure.sh

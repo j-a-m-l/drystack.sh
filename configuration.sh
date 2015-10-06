@@ -1,7 +1,9 @@
-
 #
 # Values for installing and configuring OpenStack
 #
+
+# Some clients has problems without this
+export LC_ALL=C
 
 # IP of the unique node (localhost is enough)
 DRY_IP='127.0.0.1'
@@ -28,6 +30,7 @@ DRY_TEMPORAL_URL="http://$DRY_IP:35357/v2.0"
 # MariaDB
 ROOT_DB_PASS='My^Maria'
 DB_IP=$DRY_IP
+DB_HOST=$DRY_IP
 
 # RabbitMQ
 RABBIT_USER='openstack'
@@ -35,6 +38,10 @@ RABBIT_PASS='carrot'
 
 # Useful during installation
 DRY_VERBOSE='True'
+
+# It is used in a lot of service configurations
+KEYSTONE_AUTH_URI="http://$DRY_IP:5000"
+KEYSTONE_AUTH_URL="http://$DRY_IP:35357"
 
 # Keystone
 KEYSTONE_DB_PASS='yeah-keystone-lol'
@@ -45,11 +52,12 @@ KEYSTONE_PUBLIC_URL="http://$DRY_IP:5000/v2.0"
 KEYSTONE_ADMIN_URL="http://$DRY_IP:35357/v2.0"
 
 # Glance
-GLANCE_PASS='glande-jajaja'
+GLANCE_PASS='its-like-glande'
 GLANCE_DB_PASS=$GLANCE_PASS
 GLANCE_ENDPOINT="http://$DRY_IP:9292"
 GLANCE_EXAMPLE_IMAGE_FILE='trusty-server-cloudimg-amd64-disk1.img'
 GLANCE_EXAMPLE_IMAGE_URL="http://cloud-images.ubuntu.com/trusty/current/$GLANCE_EXAMPLE_IMAGE_FILE"
+GLANCE_EXAMPLE_IMAGE_NAME="Ubuntu 14.04 3 - Cloud Image"
 
 # Nova
 NOVA_PASS='new-super-nova'
@@ -115,3 +123,13 @@ CINDER_SERVER_NAME=$DRY_HOST
 
 # Horizon
 HORIZON_SERVER_NAME=$DRY_HOST
+
+
+__os__() {
+	openstack --os-auth-type password \
+	--os-auth-url $DRY_AUTH_URL \
+	--os-project-name $DRY_ADMIN_PROJECT \
+	--os-username $DRY_ADMIN_USER \
+	--os-password $DRY_ADMIN_PASS \
+	"$@"
+}
