@@ -1,36 +1,36 @@
 source $PWD/configuration.sh
 
-echo -e "»\n» Disabling the temporary authentication token mechanism\n»"
-
-sudo crudini --del /etc/keystone/keystone-paste.ini pipeline:public_api admin_token_auth
-sudo crudini --del /etc/keystone/keystone-paste.ini pipeline:admin_api admin_token_auth
-sudo crudini --del /etc/keystone/keystone-paste.ini pipeline:api_v3 admin_token_auth
-
-echo -e "»\n» Checking ...\n»"
+echo -e "»\n» Testing token issue\n»"
 
 openstack --os-auth-type password \
-	--os-auth-url $OS_AUTH_URL \
+	--os-auth-url $DRY_AUTH_URL \
 	--os-project-name $DRY_ADMIN_PROJECT \
 	--os-username $DRY_ADMIN_USER \
 	--os-password $DRY_ADMIN_PASS \
 	token issue
 
+echo -e "»\n» Testing project list\n»"
+
 openstack --os-auth-type password \
-	--os-auth-url $OS_AUTH_URL \
+	--os-auth-url $DRY_AUTH_URL \
 	--os-project-name $DRY_ADMIN_PROJECT \
 	--os-username $DRY_ADMIN_USER \
 	--os-password $DRY_ADMIN_PASS \
 	project list
 
+echo -e "»\n» Testing user list\n»"
+
 openstack --os-auth-type password \
-	--os-auth-url $OS_AUTH_URL \
+	--os-auth-url $DRY_AUTH_URL \
 	--os-project-name $DRY_ADMIN_PROJECT \
 	--os-username $DRY_ADMIN_USER \
 	--os-password $DRY_ADMIN_PASS \
 	user list
 
+echo -e "»\n» Testing role list\n»"
+
 openstack --os-auth-type password \
-	--os-auth-url $OS_AUTH_URL \
+	--os-auth-url $DRY_AUTH_URL \
 	--os-project-name $DRY_ADMIN_PROJECT \
 	--os-username $DRY_ADMIN_USER \
 	--os-password $DRY_ADMIN_PASS \

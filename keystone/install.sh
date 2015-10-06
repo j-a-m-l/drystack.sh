@@ -1,13 +1,16 @@
 source $PWD/configuration.sh
 
-echo -e "»\n»Creating the Keystone database\n»"
+$PWD/keystone/install/db.sh
+$PWD/keystone/install/packages.sh
+$PWD/keystone/install/configure.sh
+$PWD/keystone/install/apache.sh
 
-mysql -uroot -p$ROOT_DB_PASS -e "CREATE DATABASE keystone;"
+$PWD/keystone/install/service.sh
+$PWD/keystone/install/endpoint.sh
+$PWD/keystone/install/user.sh
+$PWD/keystone/install/projects.sh
 
-mysql -uroot -p$ROOT_DB_PASS -e "GRANT ALL PRIVILEGES ON keystone.* TO 'keystone'@'localhost' IDENTIFIED BY '$KEYSTONE_DB_PASS';"
+$PWD/keystone/verify.sh
 
-mysql -uroot -p$ROOT_DB_PASS -e "GRANT ALL PRIVILEGES ON keystone.* TO 'keystone'@'%' IDENTIFIED BY '$KEYSTONE_DB_PASS';"
-
-echo -e "»\n»Installing Keystone packages\n»"
-
-sudo apt-get install -y keystone python-openstackclient apache2 libapache2-mod-wsgi memcached python-memcache
+# Only execute this is the verification works
+# $PWD/keystone/install/disable_token.sh

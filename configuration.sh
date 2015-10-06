@@ -1,30 +1,32 @@
-source $PWD/admin-openrc.sh
+
+#
+# Values for installing and configuring OpenStack
+#
+
+# IP of the unique node (localhost is enough)
+DRY_IP='127.0.0.1'
+# TODO
+DRY_HOST='lab'
+
+# Admin configuration and credentials
+DRY_ADMIN_DOMAIN='default'
+DRY_ADMIN_PROJECT='admin'
+DRY_ADMIN_EMAIL='admin@example.net'
+DRY_ADMIN_USER='admin'
+DRY_ADMIN_PASS='admin'
+
+# This project contains a unique user for each service
+DRY_SERVICE_PROJECT='service'
+
+# It is better to avoid touching $OS_* variables
+DRY_AUTH_URL="http://$DRY_IP:35357"
+DRY_REGION='RegionOne'
 
 DRY_TEMPORAL_TOKEN='ADMIN'
 DRY_TEMPORAL_URL="http://$DRY_IP:35357/v2.0"
 
-# Options for installing and configuring OpenStack
-
-DRY_HOST='lab'
-
-# Interface that connects to the machine
-DRY_EX_INTERFACE='em1'
-DRY_EX_IP='192.168.1.80'
-DRY_EX_NETWORK='192.168.1.0'
-DRY_EX_GATEWAY='192.168.1.254'
-DRY_EX_NETMASK='255.255.255.0'
-DRY_EX_BROADCAST='192.168.1.255'
-
-# Interface that connects to OVS, instances, etc.
-DRY_VINT_INTERFACE='em2'
-DRY_VINT_IP='192.168.1.81'
-DRY_VINT_NETWORK=$DRY_EX_NETWORK
-DRY_VINT_GATEWAY=$DRY_EX_GATEWAY
-DRY_VINT_NETMASK=$DRY_EX_NETMASK
-DRY_VINT_BROADCAST=$DRY_EX_BROADCAST
-
 # MariaDB
-ROOT_DB_PASS='My&Maria'
+ROOT_DB_PASS='My^Maria'
 DB_IP=$DRY_IP
 
 # RabbitMQ
@@ -64,6 +66,22 @@ NEUTRON_ENDPOINT="http://$DRY_IP:9696"
 NEUTRON_SERVER_NAME=$DRY_HOST
 NEUTRON_NON_VNC_URL="http://$DRY_IP:6080/vnc_auto.html"
 NEUTRON_METADATA_SECRET='Lost Art of Keeping a Secret'
+
+# Interface that connects to the machine
+DRY_EX_INTERFACE='em1'
+DRY_EX_IP='192.168.1.80'
+DRY_EX_NETWORK='192.168.1.0'
+DRY_EX_GATEWAY='192.168.1.254'
+DRY_EX_NETMASK='255.255.255.0'
+DRY_EX_BROADCAST='192.168.1.255'
+
+# Interface that connects to OVS, instances, etc.
+DRY_VINT_INTERFACE='em2'
+DRY_VINT_IP='192.168.1.81'
+DRY_VINT_NETWORK=$DRY_EX_NETWORK
+DRY_VINT_GATEWAY=$DRY_EX_GATEWAY
+DRY_VINT_NETMASK=$DRY_EX_NETMASK
+DRY_VINT_BROADCAST=$DRY_EX_BROADCAST
 
 # Networks
 NEUTRON_FLAT_NET='ExternalNet'

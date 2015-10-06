@@ -1,4 +1,4 @@
-source ./configuration.sh
+source $PWD/configuration.sh
 
 echo -e "»\n» Updating packages\n»"
 
@@ -7,6 +7,7 @@ sudo add-apt-repository cloud-archive:kilo
 sudo apt-get update
 
 echo -e "»\n» Installing and configuring MariaDB\n»"
+echo -e "Configured DB root pass: $ROOT_DB_PASS"
 
 sudo apt-get -y install mariadb-server python-mysqldb
 
@@ -24,12 +25,15 @@ sudo service mysql restart
 sudo mysql_secure_installation
 
 echo -e "»\n» Installing and configuring RabbitMQ\n»"
+echo -e "RabbitMQ user: $RABBIT_USER"
+echo -e "RabbitMQ password: $RABBIT_PASS"
 
 sudo apt-get install -y rabbitmq-server
 sudo rabbitmqctl delete_user guest
 sudo rabbitmqctl add_user $RABBIT_USER $RABBIT_PASS
 sudo rabbitmqctl set_permissions $RABBIT_USER ".*" ".*" ".*"
 
+# TODO required in single machine?
 echo -e "»\n» Installing NTP (Network Time Protocol)\n»"
 
 sudo apt-get install -y ntp

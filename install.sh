@@ -1,14 +1,7 @@
 # Ignore this; currently is not intended to be something completely automatic
 # $PWD/requirements.sh
 
-$PWD/keystone/uninstall.sh
 $PWD/keystone/install.sh
-$PWD/keystone/configure.sh
-$PWD/keystone/apache.sh
-$PWD/keystone/restart.sh
-$PWD/keystone/identity.sh
-$PWD/keystone/projects.sh
-$PWD/keystone/verify.sh
 
 # $PWD/glance/uninstall.sh
 # $PWD/glance/install.sh
