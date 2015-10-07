@@ -23,3 +23,5 @@ TIME_ZONE = 'UTC'
 "
 
 sudo service apache2 reload
+
+# FIXME project creation
