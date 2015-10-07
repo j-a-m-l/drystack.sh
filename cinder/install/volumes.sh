@@ -1,5 +1,11 @@
 source $PWD/configuration.sh
 
+echo -e "»\n» Making a back-up of the Glance configurations\n»"
+
+sudo mkdir -p $PWD/cinder/backup
+sudo cp /etc/cinder/cinder.conf $PWD/cinder/backup/cinder-volumes.conf
+sudo cp /etc/lvm/lvm.conf $PWD/cinder/backup/
+
 echo -e "»\n» Manual step!\n»"
 echo -e "»\n» It is necessary to create the LVM volumes\n»"
 echo -e '
@@ -16,7 +22,7 @@ echo -e '
 devices {
 ..
 	filter = [ "a/sdb/", "a/sdc/", "r/.*/" ]
-	filter = [ "a|/dev/sdb/|", "a|/dev/sdc/|", "r/.*/" ]
+	filter = [ "a|/dev/sdb|", "a|/dev/sdc|", "r/.*/" ]
 '
 echo -e "It can be tested with 'sudo vgs -vvvv'"
 
@@ -27,9 +33,7 @@ sudo crudini --set /etc/cinder/cinder.conf DEFAULT volumes_dir /var/lib/cinder/v
 sudo crudini --set /etc/cinder/cinder.conf DEFAULT volume_name_template volume-%s
 sudo crudini --set /etc/cinder/cinder.conf DEFAULT volume_group cinder-volumes
 
-echo -e "»\n» Manual step!\n»"
 echo -e "»\n» It is necessary to configure the Cinder volumes\n»"
-# echo -e '
 sudo crudini --set /etc/cinder/cinder.conf DEFAULT enabled_backends volumes-ssd,volumes-hdd
 sudo crudini --set /etc/cinder/cinder.conf DEFAULT default_volume_type performance
 
@@ -44,4 +48,3 @@ sudo crudini --set /etc/cinder/cinder.conf volumes-hdd volume_group cinder-volum
 sudo crudini --set /etc/cinder/cinder.conf volumes-hdd volume_backend_name volumes-hdd
 sudo crudini --set /etc/cinder/cinder.conf volumes-hdd iscsi_protocol iscsi
 sudo crudini --set /etc/cinder/cinder.conf volumes-hdd iscsi_helper tgtadm
-# '

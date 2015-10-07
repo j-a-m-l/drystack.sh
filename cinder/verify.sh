@@ -2,26 +2,27 @@ source $PWD/configuration.sh
 
 echo -e "»\n» List of Cinder services\n»"
 
-cinder service-list
+__os__ service show volume
+
+__os__ service show volumev2
 
 echo -e "»\n» Creating a test Cinder volume\n»"
 
-cinder create --name test_volume 1
+# FIXME it does not set the name; maybe is related to this: https://bugs.launchpad.net/trove/+bug/1382881
+__os__ volume create \
+	--size 1 \
+	test_volume
 
-echo -e "»\n» List of Cinder columes\n»"
+sleep 2
 
-cinder list
+echo -e "»\n» List of Cinder volumes\n»"
+
+__os__ volume list --all-projects
 
 echo -e "»\n» Deleting the test Cinder volume\n»"
 
-cinder delete test_volume
+__os__ volume delete test_volume
 
-echo -e "»\n» Manual step!\n»"
-echo -e "»\n» Creating Cinder volume types\n»"
-# echo -e '
-cinder type-create regular
-cinder type-key regular set volume_backend_name=volumes-hdd
+echo -e "»\n» List of Cinder volume types\n»"
 
-cinder type-create performance
-cinder type-key regular set volume_backend_name=volumes-ssd
-# '
+__os__ volume type list

@@ -1,12 +1,5 @@
 source $PWD/configuration.sh
 
-echo -e "»\n» Deleting the Cinder user, service and endpoint\n»"
-
-openstack user delete cinder
-openstack service delete cinder
-# TODO works, but triggers error
-openstack endpoint delete `openstack endpoint list | grep cinder | awk '{ print $2 }' | head -n1`
-
 echo -e "»\n» Stopping Cinder services\n»"
 
 # sudo service tgt restart
@@ -14,6 +7,13 @@ echo -e "»\n» Stopping Cinder services\n»"
 sudo service cinder-api stop
 sudo service cinder-scheduler stop
 sudo service cinder-volume stop
+
+echo -e "»\n» Deleting the Cinder user, service and endpoint\n»"
+
+__os__ user delete cinder
+__os__ service delete cinder
+# TODO works, but triggers error
+__os__ endpoint delete `openstack endpoint list | grep cinder | awk '{ print $2 }' | head -n1`
 
 echo -e "»\n» Deleting the Cinder database\n»"
 
