@@ -4,7 +4,7 @@ echo -e "»\n» Manual step!\n»"
 echo -e "»\n»Configuring the Horizon options\n»"
 echo -e "»\n» Edit '/etc/openstack-dashboard/local_settings.py' with something like:\n»"
 echo -e "
-OPENSTACK_HOST = '$HORIZON_SERVER_NAME'
+OPENSTACK_HOST = '$DRY_HOST'
 	
 ALLOWED_HOSTS = '*'
 	

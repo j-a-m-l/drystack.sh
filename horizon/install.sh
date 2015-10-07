@@ -1,5 +1,2 @@
-source $PWD/configuration.sh
-
-echo -e "»\n»Installing the Horizon packages\n»"
-
-sudo apt-get install -y openstack-dashboard
+$PWD/horizon/install/package.sh
+$PWD/horizon/install/configure.sh

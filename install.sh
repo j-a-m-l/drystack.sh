@@ -7,10 +7,3 @@ $PWD/nova/install.sh
 $PWD/neutron/install.sh
 $PWD/cinder/install.sh
 $PWD/horizon/install.sh
-
-# $PWD/cinder/configure.sh
-# $PWD/cinder/volumes.sh
-# $PWD/cinder/restart.sh
-# $PWD/cinder/verify.sh
-
-# $PWD/horizon/configure

@@ -116,11 +116,9 @@ CINDER_PASS='cindeR-cider'
 CINDER_DB_PASS=$CINDER_PASS
 CINDER_URL="http://$DRY_IP:8776/v2"
 CINDER_ENDPOINT="$CINDER_URL/%(tenant_id)s"
-CINDER_SERVER_NAME=$DRY_HOST
 
 # Horizon
-HORIZON_SERVER_NAME=$DRY_HOST
-
+# ...
 
 __os__() {
 	openstack --os-auth-type password \
