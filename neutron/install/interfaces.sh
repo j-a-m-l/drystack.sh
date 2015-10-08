@@ -35,7 +35,7 @@ broadcast $DRY_EX_BROADCAST
 netmask $DRY_EX_NETMASK
 dns-nameservers 8.8.8.8
 ovs_type OVSPort
-ovs_ports $NEUTRON_FLAT_BRIDGE
+ovs_ports $DRY_EX_INTERFACE
 bridge_stp off
 bridge_fd 0
 bridge_maxwait 0
@@ -56,7 +56,7 @@ broadcast $DRY_VINT_BROADCAST
 netmask $DRY_VINT_NETMASK
 dns-nameservers 8.8.8.8
 ovs_type OVSPort
-ovs_ports $NEUTRON_VLAN_BRIDGE
+ovs_ports $DRY_VINT_INTERFACE
 bridge_stp off
 bridge_fd 0
 bridge_maxwait 0

@@ -5,6 +5,9 @@ echo -e "»\n»Configuring the Horizon options\n»"
 echo -e "»\n» Edit '/etc/openstack-dashboard/local_settings.py' with something like:\n»"
 echo -e "
 OPENSTACK_HOST = '$DRY_HOST'
+
+# This could be VERY useful for avoiding some problems
+OPENSTACK_ENPOINT_TYPE = 'adminURL'
 	
 ALLOWED_HOSTS = '*'
 	
@@ -15,7 +18,7 @@ CACHES = {
 	}
 }
 
-Comment out any other session storage configuration.
+# Comment out any other session storage configuration.
 	
 OPENSTACK_KEYSTONE_DEFAULT_ROLE = 'admin'
 	
