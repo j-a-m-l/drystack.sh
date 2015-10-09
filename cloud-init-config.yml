@@ -1,0 +1,14 @@
+#cloud-config
+disable_root: false
+ssh_pwauh: true
+bootcmd:
+  - ifdown eth0
+  - ifup eth0
+users:
+  - default
+  - name: root
+    ssh_pwauh: true
+chpasswd:
+  list: |
+    root:asdf
+  expire: false
