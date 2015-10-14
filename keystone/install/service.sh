@@ -1,6 +1,6 @@
 source $PWD/configuration.sh
 
-echo -e "»\n»Creating the Identity service\n»"
+echo -e "»\n» Creating the Identity service\n»"
 
 openstack service create \
     --os-url $DRY_TEMPORAL_URL \

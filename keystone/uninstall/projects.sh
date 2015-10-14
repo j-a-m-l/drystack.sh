@@ -2,8 +2,14 @@ source $PWD/configuration.sh
 
 echo -e "»\n» Deleting the admin project\n»"
 
-openstack project delete $DRY_ADMIN_PROJECT
+openstack project delete \
+	--os-url $DRY_TEMPORAL_URL \
+	--os-token $DRY_TEMPORAL_TOKEN \
+	$DRY_ADMIN_PROJECT 
 
 echo -e "»\n» Deleting the service project\n»"
 
-openstack project delete service
+openstack project delete \
+	--os-url $DRY_TEMPORAL_URL \
+	--os-token $DRY_TEMPORAL_TOKEN \
+	$DRY_SERVICE_PROJECT

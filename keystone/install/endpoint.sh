@@ -1,6 +1,6 @@
 source $PWD/configuration.sh
 
-echo -e "»\n»Creating the Identity endpoint\n»"
+echo -e "»\n» Creating the Identity endpoint\n»"
 
 openstack endpoint create \
 	--os-url $DRY_TEMPORAL_URL \
