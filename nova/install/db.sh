@@ -1,6 +1,6 @@
 source $PWD/configuration.sh
 
-echo -e "»\n»Creating the Nova database\n»"
+echo -e "»\n» Creating the Nova database\n»"
 
 mysql -uroot -p$ROOT_DB_PASS -e "CREATE DATABASE nova;"
 

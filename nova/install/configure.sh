@@ -14,7 +14,7 @@ sudo crudini --set /etc/nova/nova.conf DEFAULT my_ip $DRY_IP
 
 sudo crudini --set /etc/nova/nova.conf DEFAULT vnc_enabled True
 sudo crudini --set /etc/nova/nova.conf DEFAULT vncserver_listen 0.0.0.0
-sudo crudini --set /etc/nova/nova.conf DEFAULT vncserver_proxyclient_address $DRY_IP
+sudo crudini --set /etc/nova/nova.conf DEFAULT vncserver_proxyclient_address $NOVA_VNC_ADDRESS
 sudo crudini --set /etc/nova/nova.conf DEFAULT novncproxy_base_url $NOVA_NON_VNC_URL
 
 sudo crudini --set /etc/nova/nova.conf glance host $DRY_HOST

@@ -1,6 +1,6 @@
 source $PWD/configuration.sh
 
-echo -e "»\n»Creating the Nova user\n»"
+echo -e "»\n» Creating the Nova user\n»"
 
 __os__ user create \
     --password $NOVA_PASS \

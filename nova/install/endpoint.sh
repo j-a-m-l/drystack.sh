@@ -1,10 +1,17 @@
 source $PWD/configuration.sh
 
-echo -e "»\n»Creating the Compute endpoint\n»"
+echo -e "»\n» Creating the Compute endpoint\n»"
+
+# For some reason, Nova seems to require creating the endpoints differently than other services
 
 __os__ endpoint create \
-    --publicurl $NOVA_ENDPOINT \
-    --internalurl $NOVA_ENDPOINT \
-    --adminurl $NOVA_ENDPOINT \
+	--region $DRY_REGION \
+	compute public $NOVA_ENDPOINT
+
+__os__ endpoint create \
+	--region $DRY_REGION \
+	compute internal $NOVA_ENDPOINT
+
+__os__ endpoint create \
     --region $DRY_REGION \
-    compute
+    compute admin $NOVA_ENDPOINT
