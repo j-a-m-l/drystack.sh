@@ -14,6 +14,8 @@ __os__ image create \
     --public \
     "$GLANCE_EXAMPLE_IMAGE_NAME"
 
+echo -e "»\n» Listing all images\n»"
+
 __os__ image list
 
 echo -e "»\n» Removing the example image\n»"

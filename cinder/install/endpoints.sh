@@ -1,6 +1,6 @@
 source $PWD/configuration.sh
 
-echo -e "»\n»Creating the Block Storage endpoints\n»"
+echo -e "»\n» Creating the Block Storage endpoints\n»"
 
 __os__ endpoint create \
 	--publicurl $CINDER_ENDPOINT \

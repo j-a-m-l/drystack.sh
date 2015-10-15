@@ -1,6 +1,6 @@
 source $PWD/configuration.sh
 
-echo -e " »\n»Restarting Cinder services\n»"
+echo -e " »\n» Restarting Cinder services\n»"
 
 sudo service tgt restart
 

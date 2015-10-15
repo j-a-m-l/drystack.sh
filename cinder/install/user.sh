@@ -1,6 +1,6 @@
 source $PWD/configuration.sh
 
-echo -e "»\n»Creating the Cinder user\n»"
+echo -e "»\n» Creating the Cinder user\n»"
 
 __os__ user create \
 	--password $CINDER_PASS \

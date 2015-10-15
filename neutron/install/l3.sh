@@ -12,9 +12,8 @@ sudo crudini --set /etc/neutron/l3_agent.ini DEFAULT verbose True
 sudo crudini --set /etc/neutron/l3_agent.ini DEFAULT interface_driver neutron.agent.linux.interface.OVSInterfaceDriver
 
 # TODO error prone?
-# TODO empty works?
-sudo crudini --set /etc/neutron/l3_agent.ini DEFAULT external_network_bridge
+# sudo crudini --set /etc/neutron/l3_agent.ini DEFAULT external_network_bridge
 
 # TODO
-sudo crudini --set /etc/neutron/l3_agent.ini DEFAULT router_delete_namespaces True
-# sudo crudini --set /etc/neutron/l3_agent.ini DEFAULT use_namespaces True
+# sudo crudini --set /etc/neutron/l3_agent.ini DEFAULT router_delete_namespaces True
+sudo crudini --set /etc/neutron/l3_agent.ini DEFAULT use_namespaces True

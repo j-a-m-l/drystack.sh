@@ -1,3 +1,8 @@
+$PWD/neutron/install/ovs.sh
+$PWD/neutron/install/interfaces.sh
+$PWD/neutron/install/restart.sh
+$PWD/neutron/verify/interfaces.sh
+
 $PWD/neutron/install/db.sh
 
 $PWD/neutron/install/user.sh
@@ -18,17 +23,11 @@ $PWD/neutron/install/restart.sh
 $PWD/neutron/verify/installation.sh
 
 $PWD/neutron/install/external_network.sh
-$PWD/neutron/install/internal_network.sh
+# $PWD/neutron/install/internal_network.sh
 $PWD/neutron/verify/networks.sh
 
-$PWD/neutron/install/router
-$PWD/neutron/verify/router.sh
+# $PWD/neutron/install/router
+# $PWD/neutron/verify/router.sh
 
 $PWD/neutron/install/security_group.sh
 $PWD/neutron/verify/security_group.sh
-
-$PWD/neutron/install/ovs.sh
-$PWD/neutron/install/interfaces.sh
-$PWD/neutron/install/restart.sh
-
-$PWD/neutron/verify/interfaces.sh

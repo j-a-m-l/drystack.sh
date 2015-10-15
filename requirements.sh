@@ -34,9 +34,9 @@ sudo rabbitmqctl add_user $RABBIT_USER $RABBIT_PASS
 sudo rabbitmqctl set_permissions $RABBIT_USER ".*" ".*" ".*"
 
 # TODO required in single machine?
-echo -e "»\n» Installing NTP (Network Time Protocol)\n»"
+# echo -e "»\n» Installing NTP (Network Time Protocol)\n»"
 
-sudo apt-get install -y ntp
+# sudo apt-get install -y ntp
 
 echo -e "»\n» Installing some network tools\n»"
 

@@ -1,6 +1,6 @@
 source $PWD/configuration.sh
 
-echo -e "»\n»Creating the Block Storage services\n»"
+echo -e "»\n» Creating the Block Storage services\n»"
 
 __os__ service create \
 	--name cinder \

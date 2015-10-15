@@ -7,13 +7,14 @@ sudo cp /etc/neutron/plugins/ml2/ml2_conf.ini $PWD/neutron/backup/
 
 echo -e "»\n»Configuring the Neutron ML2 plug-in\n»"
 
-sudo crudini --set /etc/neutron/plugins/ml2/ml2_conf.ini ml2 type_drivers flat,vlan
+sudo crudini --set /etc/neutron/plugins/ml2/ml2_conf.ini ml2 type_drivers local,flat,vlan
 sudo crudini --set /etc/neutron/plugins/ml2/ml2_conf.ini ml2 tenant_network_types flat,vlan
 sudo crudini --set /etc/neutron/plugins/ml2/ml2_conf.ini ml2 mechanism_drivers openvswitch
 
 sudo crudini --set /etc/neutron/plugins/ml2/ml2_conf.ini ml2_type_flat flat_networks $NEUTRON_FLAT_NET
 
-sudo crudini --set /etc/neutron/plugins/ml2/ml2_conf.ini ml2_type_vlan network_vlan_ranges "$NEUTRON_VLAN_NET:$NEUTRON_VLAN_RANGE"
+# VLAN
+# sudo crudini --set /etc/neutron/plugins/ml2/ml2_conf.ini ml2_type_vlan network_vlan_ranges "$NEUTRON_VLAN_NET:$NEUTRON_VLAN_RANGE"
 
 echo -e "»\n»Configuring the Neutron ML2 plug-in security group\n»"
 
@@ -27,4 +28,11 @@ echo -e "»\n»Configuring the Neutron ML2 plug-in OVS options\n»"
 
 sudo crudini --set /etc/neutron/plugins/ml2/ml2_conf.ini ovs local_ip $DRY_IP
 
-sudo crudini --set /etc/neutron/plugins/ml2/ml2_conf.ini ovs bridge_mappings "$NEUTRON_FLAT_NET:$NEUTRON_FLAT_BRIDGE,$NEUTRON_VLAN_NET:$NEUTRON_VLAN_BRIDGE"
+# VLAN
+# sudo crudini --set /etc/neutron/plugins/ml2/ml2_conf.ini ovs bridge_mappings "$NEUTRON_FLAT_NET:$NEUTRON_FLAT_BRIDGE,$NEUTRON_VLAN_NET:$NEUTRON_VLAN_BRIDGE"
+
+# FLAT only
+sudo crudini --set /etc/neutron/plugins/ml2/ml2_conf.ini ovs bridge_mappings "$NEUTRON_FLAT_NET:$NEUTRON_FLAT_BRIDGE"
+sudo crudini --set /etc/neutron/plugins/ml2/ml2_conf.ini ovs network_vlan_ranges $NEUTRON_FLAT_NET
+
+# sudo crudini --set /etc/neutron/plugins/ml2/ml2_conf.ini ovs enable_tunneling False

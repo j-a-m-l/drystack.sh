@@ -1,5 +1,7 @@
 source $PWD/configuration.sh
 
+# TODO if no instances
+
 echo -e "»\n» Removing the 'open' security group\n»"
 
 neutron security-group-delete open
@@ -12,15 +14,19 @@ neutron router-delete $NEUTRON_ROUTER
 echo -e "»\n» Removing the networks\n»"
 
 neutron subnet-delete $NEUTRON_PUBLIC_SUBNET_NAME
-neutron subnet-delete $NEUTRON_PRIVATE_SUBNET_NAME
 neutron net-delete $NEUTRON_PUBLIC_NET
-neutron net-delete $NEUTRON_PRIVATE_NET
+
+# VLAN
+# neutron net-delete $NEUTRON_PRIVATE_NET
+# neutron subnet-delete $NEUTRON_PRIVATE_SUBNET_NAME
 
 echo -e "»\n» Removing the OVS bridges and ports\n»"
 
 # sudo ovs-vsctl del-br 'br-int'
 sudo ovs-vsctl del-br $NEUTRON_FLAT_BRIDGE
-sudo ovs-vsctl del-br $NEUTRON_VLAN_BRIDGE
+
+# VLAN
+# sudo ovs-vsctl del-br $NEUTRON_VLAN_BRIDGE
 
 # TODO 
 echo -e "»\n» Removing the Neutron configuration\n»"
